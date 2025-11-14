@@ -38,8 +38,9 @@ main {
 
 /* การ์ดหุ้น */
 .card {
-  background-color: #ffffffcc;
+  background-color: #e8edf5;
   /* สีขาวโปร่งนิดๆ */
+  /* ✅ เปลี่ยนจากขาวนวลเป็นฟ้าเทาอ่อน */
   border: 1px solid #ccc;
   border-radius: 12px;
   padding: 20px;
