@@ -7,35 +7,28 @@ const overlayDesc = document.getElementById("overlayDesc");
 const overlayLink = document.getElementById("overlayLink");
 
 function openOverlay() {
-  overlay.style.display = "flex";
+  overlay.classList.add("open");
   document.body.classList.add("modal-open");
 }
 
 function closeOverlay() {
-  overlay.style.display = "none";
+  overlay.classList.remove("open");
   document.body.classList.remove("modal-open");
 }
 
 function handleOverlayClick(event) {
-  const clickedElement = event.target;
-  const isInsideBox = clickedElement.closest(".overlay-box");
-  if (isInsideBox === null) {
+  if (event.target === overlay) {
     closeOverlay();
   }
 }
 
 function createCompanyCard(company) {
   const article = document.createElement("article");
-  article.setAttribute("data-name", company.name);
-  article.setAttribute("data-desc", company.desc);
-  article.setAttribute("data-img", company.img);
-  article.setAttribute("data-url", company.url);
+  article.className = "card"; // ✅ ใช้ CSS .card
 
   const logo = document.createElement("img");
   logo.src = company.img;
   logo.alt = company.name;
-  logo.width = 120;
-  logo.height = 120;
 
   const title = document.createElement("h2");
   title.textContent = company.name;
@@ -45,7 +38,6 @@ function createCompanyCard(company) {
 
   const button = document.createElement("button");
   button.type = "button";
-  button.className = "open-btn";
   button.textContent = "รายละเอียด";
 
   button.addEventListener("click", function () {
